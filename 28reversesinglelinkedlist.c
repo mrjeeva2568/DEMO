@@ -23,10 +23,19 @@ int main (){
         temp=newnode;
     }
     }
+struct node*prev=NULL,*current=head,*next;
+while(current!=NULL){
+    next=current->next;
+    current->next=prev;
+    prev=current;
+    current=next;
+}
     printf("linked list:");
-    while(head!=NULL){
-        printf("%d->",head->data);
-        head=head->next;
+    head=prev;
+    temp=head;
+    while(temp!=NULL){
+        printf("%d->",temp->data);
+        temp=temp->next;
     }
     
 }
